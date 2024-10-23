@@ -3,7 +3,10 @@
 def encode(password):
     res = ''
     for item in password:
-        res += str(int(item) + 3)
+        num = str(int(item) + 3)
+        if len(num) == 2:
+            num = num[1]
+        res += num
     return res
 
 def main():
@@ -19,7 +22,7 @@ def main():
             decoded_pass = input('Please enter your password to encode: ')
             encoded_password = encode(decoded_pass)
             print('Your password has been encoded and stored!')
-            print()
+            print(encoded_password)
         if option == 3:
             coder_continue = False
             break
