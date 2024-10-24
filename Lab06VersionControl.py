@@ -9,6 +9,16 @@ def encode(password):
         res += num
     return res
 
+def decode(encoded_password):
+    original =''
+    for element in encoded_password:
+        num = (int(element) - 3)
+        if num < 0:
+            original += str(num + 10)
+        else:
+            original += str(num)
+    return original
+
 def main():
     coder_continue = True
     while coder_continue:
@@ -23,6 +33,9 @@ def main():
             encoded_password = encode(decoded_pass)
             print('Your password has been encoded and stored!')
             print()
+        if option == 2:
+            new_decoded_pass = decode(encoded_password)
+            print(f'The encoded password is {encoded_password}, and the original password is {new_decoded_pass}.')
         if option == 3:
             coder_continue = False
             break
